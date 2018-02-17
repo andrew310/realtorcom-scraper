@@ -1,0 +1,4 @@
+errors/*.png
+.vscode
+node_modules
+*.csv
