@@ -1,0 +1,411 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    	<meta name="ad.size" content="width=300,height=250">
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no"> 
+        <script>
+			var WIDTHS = new Object();
+            var HEIGHTS = new Object();
+			
+            WIDTHS['panel1'] = 300;
+			HEIGHTS['panel1'] = 250;
+            
+            var arrayLoadStarted= new Object();
+            var arrayLoadCompleted = new Object();
+            
+            var borderColor = "#000000";
+            
+            
+            var LOG_ALL = false;
+            var DD_LOCAL = ((window.location.href.indexOf('dragndrops.com') >=0 || window.location.href.indexOf('file:///') >=0 || window.location.href.indexOf('127.0.0.1') >=0) ? true : false);
+            var dd_loadLocation = '';
+			var animationComplete = false;
+			var animate = true;
+            var currentPanel = 'panel1';
+			var animationShouldStart = true;
+			var startTime;
+            
+            var IS_ATLAS = false;
+            var clickTag = 'http://www.google.com/';
+		</script>
+        <link rel="stylesheet" href="index_data/style_min.css">
+		<style>
+            .ret{
+                width:300px;
+                height:250px;
+            }
+            .clipReveal, #loadingHolder1, #loadingHolder2, #loadingHolder3, #loadingHolder4{
+                clip:rect(0px 0px 0px 0px);
+            }
+            #bg{
+                background:#FFFFFF;
+            }
+		</style>
+	<script type="text/javascript">
+    
+      (function() {
+        var relegateNavigation = '';
+        var handleClickTagMessage = function(e) {
+          try {
+            var eventData = JSON.parse(e.data);
+          } catch (err) {
+            return;
+          }
+          if (eventData.isInitClickTag) {
+            if (eventData.clickTags) {
+              for (var i = 0; i < eventData.clickTags.length; i++) {
+                var clkTag = eventData.clickTags[i];
+                window[clkTag.name] = clkTag.url;
+              }
+            } else if (eventData.clickTag) {
+              window.clickTag = eventData.clickTag;
+            }
+            relegateNavigation = eventData.relegateNavigation;
+          }
+        };
+
+        if (open.call) {
+          window.open = function(open) {
+            return function(url, name, features) {
+              if (relegateNavigation === 'parent') {
+                var message = {'clickTag': url, 'isPostClickTag': true};
+                parent.postMessage(JSON.stringify(message), '*');
+              } else {
+                var args = [url, name];
+                if (features) {
+                  args.push(features);
+                }
+                open.apply(window, args);
+              }
+            };
+          }(window.open);
+        }
+
+        if (window.addEventListener) {
+          window.addEventListener(
+              'message', handleClickTagMessage, false);
+        } else {
+          window.attachEvent('onmessage', handleClickTagMessage);
+        }
+      })();
+    
+  </script><script type="text/javascript" src="../container_data_004/index_data/cssplugin_1.js"></script><script type="text/javascript" src="../container_data_004/index_data/easepack_1.js"></script><script type="text/javascript" src="../container_data_004/index_data/tweenlite_1.js"></script></head>
+	<body>
+		<!-- content -->
+		<div id="container">
+			<div id="media" style="visibility: visible; display: block; height: 250px; width: 300px;">
+                <a class="ad" id="container_clickthrough" href="javascript:window.open(window.clickTag);%20void%200;" style="position:absolute; width:100%; height:100%;"></a>
+			<div id="panel1" class="panel" style="display: block; visibility: visible;"><div id="bg" style="opacity: 1;"></div><div class="hotspot" id="clickthroughHotspot" style="cursor: pointer; visibility: visible;"></div><img id="bg_img" src="index_data/JPG_Background.jpg" style="opacity: 1;"><div id="textBacking"></div><img class="ret" id="logo" src="index_data/PNG_Logo.png" style="opacity: 1; z-index: 5;"><img id="loading" src="index_data/JPG_LoadingBar.jpg"><img id="txtundefined_1" src="index_data/PNG_TextundefinedA.gif"><img id="txt1" src="index_data/PNG_Text1.png" style="height: 250px; width: 300px; opacity: 1; transform: matrix(1, 0, 0, 1, -900, 0);"><div id="loadingHolder1" style="clip: rect(0px, 1275px, 250px, 0px); opacity: 1; height: 250px; width: 300px; transform: matrix(1, 0, 0, 1, -900, 0);"><canvas width="600" height="500" id="loading1" style="position: absolute; left: 0px; top: 0px; opacity: 1;" class="ret"></canvas></div><img id="txt2" src="index_data/PNG_Text2.png" style="height: 250px; width: 300px; opacity: 1; transform: matrix(1, 0, 0, 1, -900, 0);"><img id="txt2O" src="index_data/PNG_Text2_Overlay.png" style="z-index: 2; height: 250px; width: 300px; opacity: 1; transform: matrix(1, 0, 0, 1, -900, 0);"><div id="loadingHolder2" style="clip: rect(0px, 1200px, 250px, 0px); opacity: 1; height: 250px; width: 300px; transform: matrix(1, 0, 0, 1, -900, 0);"><canvas width="600" height="500" id="loading2" style="position: absolute; left: 0px; top: 0px; opacity: 1;" class="ret"></canvas></div><img id="txt3" src="index_data/PNG_Text3.png" style="opacity: 1; height: 250px; width: 300px; transform: matrix(1, 0, 0, 1, -600, 0);"><img id="txt3O" src="index_data/PNG_Text3_Overlay.png" style="z-index: 2; opacity: 1; height: 250px; width: 300px; transform: matrix(1, 0, 0, 1, -600, 0);"><div id="loadingHolder3" style="clip: rect(0px, 900px, 250px, 0px); opacity: 1; height: 250px; width: 300px; transform: matrix(1, 0, 0, 1, -600, 0);"><canvas width="600" height="500" id="loading3" style="position: absolute; left: 0px; top: 0px; opacity: 1;" class="ret"></canvas></div><img id="txt4" src="index_data/PNG_Text4.png" style="opacity: 1; height: 250px; width: 300px; transform: matrix(1, 0, 0, 1, -300, 0);"><img id="txt4O" src="index_data/PNG_Text4_Overlay.png" style="z-index: 2; opacity: 1; height: 250px; width: 300px; transform: matrix(1, 0, 0, 1, -300, 0);"><div id="loadingHolder4" style="clip: rect(0px, 600px, 250px, 0px); opacity: 1; height: 250px; width: 300px; transform: matrix(1, 0, 0, 1, -300, 0);"><canvas width="600" height="500" id="loading4" style="position: absolute; left: 0px; top: 0px; opacity: 1;" class="ret"></canvas></div><img id="txt5" src="index_data/PNG_Text5.png" style="opacity: 1; height: 250px; width: 300px; transform: matrix(1, 0, 0, 1, -300, 0);"><img id="txt5O" src="index_data/PNG_Text5_Overlay.png" style="z-index: 2; opacity: 1; height: 250px; width: 300px; transform: matrix(1, 0, 0, 1, -300, 0);"><div id="loadingHolder5" style="clip: rect(0px, 300px, 250px, 0px); opacity: 1; height: 250px; width: 300px; transform: matrix(1, 0, 0, 1, -300, 0);"><canvas width="600" height="500" id="loading5" style="position: absolute; left: 0px; top: 0px; opacity: 1;" class="ret"></canvas></div><img class="ret clipReveal" id="txt6_1" src="index_data/PNG_Text6.png" style="clip: rect(0px, 300px, 96px, 0px); opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);"><img class="ret clipReveal" id="txt6_2" src="index_data/PNG_Text6.png" style="clip: rect(96px, 300px, 130px, 0px); opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);"><img class="ret clipReveal" id="txt6_3" src="index_data/PNG_Text6.png" style="clip: rect(130px, 300px, 250px, 0px); opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);"><img class="ret" id="txt7" src="index_data/PNG_Text7.png" style="opacity: 1;"><img class="ret" id="shadow" src="index_data/PNG_Shadow.png" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);"></div><canvas id="border" height="252" width="302" style="transform: matrix(1, 0, 0, 1, -1, -1); opacity: 1;"></canvas></div>
+		</div>
+        <script>
+            function initAd(){
+                dd_log('loading libraries');
+                loadLibraries();
+                if(DD_LOCAL){PREVENT_MENU=false;}
+            }
+        </script>
+        <!--script src="https://s0.2mdn.net/ads/studio/Enabler.js"> </script-->
+        <!--script src="./DFA.js"> </script-->
+        <script type="text/javascript" src="index_data/dd_helpers_min.js"></script>
+        <script type="text/javascript" src="index_data/createMask.js"></script>
+		<script>
+			var frame = [];
+            
+            var txt5_stops = [0, 96, 130, HEIGHTS['panel1']];
+			function defineAssets(){
+                
+				addElement('panel1Elements', createNewElement('div', 'bg'));
+                addElement('panel1Elements', createNewElement('div', 'clickthroughHotspot', 'hotspot'));
+                addElement('panel1Elements', createNewElement('img', 'bg_img', 'JPG_Background.jpg'));
+                addElement('panel1Elements', createNewElement('div', 'textBacking'));
+                addElement('panel1Elements', createNewElement('img', 'logo', 'PNG_Logo.png', 'ret'));
+                addElement('panel1Elements', createNewElement('img', 'loading', 'JPG_LoadingBar.jpg'));
+                addElement('panel1Elements', createNewElement('img', 'txt'+i+'_1', 'PNG_Text'+i+'A.png'));
+                for(var i = 1; i <= 5; i++){
+                    addElement('panel1Elements', createNewElement('img', 'txt'+i, 'PNG_Text'+i+'.png'));
+                    if(i > 1){
+                        addElement('panel1Elements', createNewElement('img', 'txt'+i+'O', 'PNG_Text'+i+'_Overlay.png'));
+                    }
+                    addElement('panel1Elements', createNewElement('div', 'loadingHolder'+i));
+                }
+                
+                for(var i = 1; i < txt5_stops.length; i++){
+                    addElement('panel1Elements', createNewElement('img', 'txt6_'+i, 'PNG_Text6.png', 'ret clipReveal'));
+                }
+                addElement('panel1Subload1', createNewElement('img', 'txt7', 'PNG_Text7.png', 'ret'));
+                addElement('panel1Subload1', createNewElement('img', 'shadow', 'PNG_Shadow.png', 'ret'));
+			}
+            
+            var playDelay = .2;
+            
+            var playCount = 0;
+            function play(p){
+                var frame = [];
+                var currentFrame = 0;
+                animationComplete=false;
+				startTime = new Date().getTime();
+                
+                if(p == 'panel1'){
+                    var currentMove = 0;
+                    frame.push(function() {
+                        TweenLite.killTweensOf(frame[0]);
+                        if(arrayLoadCompleted['panel1Elements']){
+                            if(playCount < 1){
+                                createBorder();
+                            }
+                            
+                            beginSubload('panel1', 1);
+                            
+                            for(var i = 1; i <= 5; i++){
+                                var m = createMask('loading', 'txt'+i, 'loadingHolder'+i, 'loading'+i);
+                                m.className = 'ret';
+                                TweenLite.set(m, {opacity:1});
+                            }
+
+                            //beginSubload('panel1', 1);
+                            TweenLite.to(['#bg_img'], .5, {opacity:1});
+                            TweenLite.to(['#bg', '#border'], .5, {opacity:1});
+                            TweenLite.fromTo(['#logo'], .6, {zIndex:5}, {opacity:1, ease:Power2.easeOut});
+                            
+                            //TweenLite.fromTo(['#textBacking'], .6, {opacity:0, x:0, width:'100%', height:'100%', background:'#FFFFFF'}, {opacity:1, ease:Power2.easeOut});
+                            TweenLite.set('#txt2O', {zIndex:2});
+                            TweenLite.fromTo(['#txt1', '#txt2', '#txt2O'], .6, {opacity:0, x:0, width:WIDTHS['panel1']+'px', height:HEIGHTS['panel1']}, {opacity:1, ease:Power2.easeOut});
+                            
+                            var d = .5;
+                            var totalMove = WIDTHS['panel1']*3;
+                            var moveStart = 0;
+                            for(var i = 1; i <= 5; i++){
+                                var s = moveStart;
+                                var offset = (WIDTHS['panel1']*(i-2)*-1);
+                                if(i == 1){
+                                    offset*=.25;
+                                    d = .5;
+                                }else{
+                                    d = .85;
+                                }
+                                TweenLite.fromTo('#loadingHolder'+i, loadingSpeed, {x:s, width:WIDTHS['panel1'], height:HEIGHTS['panel1'], opacity:1, clip:'rect(0px '+(offset)+'px '+HEIGHTS['panel1']+'px 0px)'}, {clip:'rect(0px '+(offset+WIDTHS['panel1']*4)+'px '+HEIGHTS['panel1']+'px 0px)', delay:d, ease:Sine.easeIn});
+                                if(i > 1){
+                                    moveStart+=WIDTHS['panel1'];
+                                }
+                            }
+                            currentMove = 0;
+                            TweenLite.fromTo('#shadow', .5, {opacity:0, scaleX:.5, scaleY:.9}, {opacity:1, scale:1, ease:Power2.easeOut, delay:0});
+                            
+                            //TweenLite.delayedCall(.5, beginLoading);
+
+                            if(frame[++currentFrame])TweenLite.delayedCall(loadingSpeed*.35+d, frame[currentFrame]);
+                        }else{
+                            TweenLite.delayedCall(.1, frame[currentFrame]);
+                        }
+                    });
+                    frame.push(function() {
+                        if(arrayLoadCompleted['panel1Elements']){
+                            var moveStart = currentMove;
+                            for(var i = 1; i <= 5; i++){
+                                var s = moveStart;
+                                TweenLite.set('#txt'+i+'O', {zIndex:2});
+                                TweenLite.fromTo(['#txt'+i, '#txt'+i+'O', '#loadingHolder'+i], .3, {x:s, width:WIDTHS['panel1'], height:HEIGHTS['panel1'], opacity:1}, {x:(moveStart-WIDTHS['panel1']), ease:Power2.easeOut});
+                                if(i > 1){
+                                    moveStart+=WIDTHS['panel1'];
+                                }
+                            }
+                            currentMove -= WIDTHS['panel1'];
+                            TweenLite.to('#shadow', .15, {opacity:.9, scaleX:.7, ease:Power2.easeOut, delay:0, onComplete:function(){
+                                TweenLite.to('#shadow', .2, {opacity:1, scale:1, ease:Power2.easeOut});
+                            }});
+                            if(frame[++currentFrame])TweenLite.delayedCall(loadingSpeed*.225, frame[currentFrame]);
+                        }else{
+                            TweenLite.delayedCall(.1, frame[currentFrame]);
+                        }
+                    });
+                    frame.push(function() {
+                        if(arrayLoadCompleted['panel1Elements']){
+                            var moveStart = currentMove;
+                            for(var i = 1; i <= 5; i++){
+                                var s = moveStart;
+                                TweenLite.set('#txt'+i+'O', {zIndex:2});
+                                TweenLite.fromTo(['#txt'+i, '#txt'+i+'O', '#loadingHolder'+i], .3, {x:s, width:WIDTHS['panel1'], height:HEIGHTS['panel1'], opacity:1}, {x:(moveStart-WIDTHS['panel1']), ease:Power2.easeOut});
+                                if(i > 1){
+                                    moveStart+=WIDTHS['panel1'];
+                                }
+                            }
+                            TweenLite.to('#shadow', .15, {opacity:.9, scaleX:.7, ease:Power2.easeOut, delay:0, onComplete:function(){
+                                TweenLite.to('#shadow', .2, {opacity:1, scale:1, ease:Power2.easeOut});
+                            }});
+                            currentMove -= WIDTHS['panel1'];
+                            if(frame[++currentFrame])TweenLite.delayedCall(loadingSpeed*.225, frame[currentFrame]);
+                        }else{
+                            TweenLite.delayedCall(.1, frame[currentFrame]);
+                        }
+                    });
+                    frame.push(function() {
+                        if(arrayLoadCompleted['panel1Elements']){
+                            var moveStart = currentMove;
+                            for(var i = 1; i <= 5; i++){
+                                var s = moveStart;
+                                TweenLite.set('#txt'+i+'O', {zIndex:2});
+                                TweenLite.fromTo(['#txt'+i, '#txt'+i+'O', '#loadingHolder'+i], .3, {x:s, width:WIDTHS['panel1'], height:HEIGHTS['panel1'], opacity:1}, {x:(moveStart-WIDTHS['panel1']), ease:Power2.easeOut});
+                                if(i > 1){
+                                    moveStart+=WIDTHS['panel1'];
+                                }
+                            }
+                            TweenLite.to('#shadow', .15, {opacity:.9, scaleX:.7, ease:Power2.easeOut, delay:0, onComplete:function(){
+                                TweenLite.to('#shadow', .2, {opacity:1, scale:1, ease:Power2.easeOut});
+                            }});
+                            currentMove -= WIDTHS['panel1'];
+                            if(frame[++currentFrame])TweenLite.delayedCall(1.25, frame[currentFrame]);
+                        }else{
+                            TweenLite.delayedCall(.1, frame[currentFrame]);
+                        }
+                    });
+                    frame.push(function() {
+                        if(arrayLoadCompleted['panel1Subload1']){
+                            //TweenLite.set(['#txt4', '#loading4', '#textBacking'], {zIndex:1});
+                            TweenLite.to(['#txt5O', '#txt5', '#loadingHolder5'], .4, {x:-WIDTHS['panel1'], ease:Power1.easeInOut});
+                            
+                            var d = .45;
+                            for(var i = 1; i < txt5_stops.length; i++){
+                                if(i < txt5_stops.length-1){
+                                    TweenLite.fromTo(['#txt6_'+i], .2, {scale:1, opacity:0, clip:'rect('+txt5_stops[i-1]+'px '+WIDTHS['panel1']+'px '+txt5_stops[i]+'px '+0+'px)', x:1}, {scale:1, opacity:1, x:0, ease:Back.easeOut, delay:d});
+                                }else{
+                                    TweenLite.fromTo(['#txt6_'+i], .2, {opacity:0, clip:'rect('+txt5_stops[i-1]+'px '+WIDTHS['panel1']+'px '+txt5_stops[i]+'px '+0+'px)', x:0}, {opacity:1, x:0, ease:Power1.easeInOut, delay:d});
+                                }
+                                d+=.25;
+                            }
+                            
+                            
+                            if(++playCount < 2){
+                                TweenLite.delayedCall(3, function(){
+                                    resetPanel('panel1');
+                                    TweenLite.set(['#bg_img', '#bg', '#border', '#logo'], {opacity:1});
+                                    showPanel('panel1');
+                                })
+                            }
+                            
+                            TweenLite.fromTo('#txt7', .2, {opacity:0}, {opacity:1, ease:Power1.easeInOut, delay:d+.25});
+                            TweenLite.to('#shadow', .2, {opacity:0, scaleX:.7, ease:Power2.easeOut, delay:0, onComplete:function(){
+                                TweenLite.to('#shadow', 1, {opacity:1, scale:1, ease:Power1.easeInOut});
+                            }});
+                        }else{
+                            TweenLite.delayedCall(.1, frame[currentFrame]);
+                        }
+                    });
+                }else if(p == 'panel2'){
+                    frame.push(function() {
+                        //dd_log(currentFrame);
+
+                        if(frame[++currentFrame])TweenLite.delayedCall(2, frame[currentFrame]);
+                    });
+                }
+                
+				initializeHotspots();
+                
+				TweenLite.delayedCall(playDelay, frame[0]);
+                playDelay = 0;
+            }
+            
+            var loadingSpeed = 2.5;
+            function beginLoading(){
+                var totalMove = WIDTHS['panel1']*3;
+                var moveStart = 0;
+                for(var i = 1; i <= 4; i++){
+                    var s = moveStart;
+                    TweenLite.set('#txt'+i+'O', {zIndex:2});
+                    TweenLite.fromTo(['#txt'+i, '#txt'+i+'O', '#loadingHolder'+i], loadingSpeed, {x:s, width:WIDTHS['panel1'], height:HEIGHTS['panel1'], opacity:1}, {x:(moveStart-totalMove), ease:Linear.easeNone});
+                    TweenLite.fromTo('#loadingHolder'+i, loadingSpeed, {clip:'rect(0px '+((WIDTHS['panel1']*(i-1)*-1))+'px '+HEIGHTS['panel1']+'px 0px)'}, {clip:'rect(0px '+((WIDTHS['panel1']*(i-1)*-1)+WIDTHS['panel1']*4)+'px '+HEIGHTS['panel1']+'px 0px)', ease:Linear.easeNone});
+                    moveStart+=WIDTHS['panel1'];
+                }
+                //eenLite.fromTo(['#loading'+1], loadingSpeed, {x:-WIDTHS['panel1'], opacity:1}, {x:0, ease:Linear.easeNone});
+            }
+
+			function buttonClick(evt){
+				if(evt){
+					evt.stopPropagation();
+				}
+				var t = evt.target || evt.srcElement;
+				if(t == document.getElementById('clickthroughHotspot')){
+                    
+                    document.getElementById('container_clickthrough').click();
+                    //document.getElementById('container_clickthrough').click();
+                    //Enabler.exit('Clickthrough_Exit');
+					//Enabler.counter('Replay_Clicked', true);
+				}
+			}
+			
+			function buttonOver(evt){
+				if(evt){
+					evt.stopPropagation();
+				}
+				var t = evt.target || evt.srcElement;
+				if(t == document.getElementById('clickthroughHotspot')){
+					if(animationComplete){
+					}
+				}
+			}
+			
+			function buttonOut(evt){
+				if(evt){
+					evt.stopPropagation();
+				}
+				var t = evt.target || evt.srcElement;
+				if(t == document.getElementById('clickthroughHotspot')){
+					if(animationComplete){
+					}
+				}
+			}
+			
+            function initializeAd(){
+                
+				defineAssets();
+				loadAssets('panel1');
+				
+				if(animate){
+					if(animationShouldStart){
+						startMedia();
+					}else{
+						var startCheck = setInterval(function(){
+							if(animationShouldStart){
+                                clearInterval(startCheck);
+                                startMedia();
+							}else{
+								//dd_log('do not start animation');
+							}
+						}, 50);
+					}
+				}
+			}
+			
+			function startMedia() {
+				if(DD_LOCAL){
+				    TweenLite.set(document.getElementsByTagName('body')[0],{'background-color':'#999999','width':WIDTHS['panel1'],'margin':'10px auto 10px auto'});
+				}
+                /*
+                if(!IS_ATLAS){
+                    var ct = document.getElementById('container_clickthrough');
+                    ct.setAttribute('href', "javascript:void(0)");
+                    ct.onclick = function(){window.open(window.clickTag)};
+                    ct.removeAttribute('target');
+                }*/
+                    
+                showPanel('panel1');
+				
+			}
+            
+            function showPanel(id){
+                var panels = document.getElementsByClassName('panel');
+                for(var i = 0; i < panels.length; i++){
+                    TweenLite.set(panels[i], {visibility:'hidden', display:'none'});
+                }
+                TweenLite.set('#'+id, {visibility:'visible', display:'block'});
+                TweenLite.set('#media', {width:WIDTHS[id], height:HEIGHTS[id], display:'block', visibility:'visible'});
+
+                currentPanel = id;
+                play(id);
+            }
+		</script>
+        <script>
+            window.onload = initAd;
+        </script>
+    
+
+</body></html>

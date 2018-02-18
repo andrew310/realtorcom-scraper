@@ -91,33 +91,47 @@ async function getProps() {
     alreadyScraped = [];
   }
   const unscraped = getUnscraped(properties, alreadyScraped);
-  return unscraped;
+  return { unscraped, alreadyScraped };
+}
+
+async function getProxies() {
+  const proxies = await loadCsv('proxies');
+  return proxies;
 }
 
 (async () => {
+  const proxies = getProxies();
   // Initial batch.
-  let unscraped = getProps();
+  let { unscraped, alreadyScraped } = await getProps();
 
   // Until we run out of properties.
   while(unscraped && unscraped.length) {
-    console.log(`${unscraped.length} properties left to scrape.`);
+    console.log(`SCRAPER: ${unscraped.length} properties left.`);
+
+    // Use random proxy from list.
+    const proxy = proxies[Math.floor(Math.random()*proxies.length)];
 
     // Do in batches of 3 at a time.
-    const props = chunk(unscraped, 3);
-    const browser = await puppeteer.launch({ headless: false });
+    const props = chunk(unscraped, 3).pop();
+    const browser = await puppeteer.launch({
+      headless: false,
+    });
+    const newProps = await Promise.all(props.map(async (item) => {
+      return await handleProperty(browser, item);
+    }));
 
-    // Main loop.
-    for (let propArr of props) {
-      const newProps = await Promise.all(propArr.map(async (item) => {
-        return await handleProperty(browser, item);
-      }));
-  
-      // Write results for each batch so we never lose data.
-      await writeCsv('results', alreadyScraped.concat(newProps.filter(i => i)));
-    }
+    // Filter out anything that didn't catch.
+    const propsToWrite = newProps.filter(i => i);
+
+    // Write results for each batch so we never lose data.
+    await writeCsv('results', alreadyScraped.concat(propsToWrite));
 
     // Reset.
-    unscraped = getProps();
+    update = await getProps();
+    unscraped = update.unscraped;
+    alreadyScraped = update.alreadyScraped;
+
+    // Close browser, don't keep using same proxy.
     await browser.close();
   }
 

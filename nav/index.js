@@ -27,7 +27,7 @@ async function searchProperty(browser, { address, city, state, zip }) {
   try {
     await page.focus('#searchBox', { timeout: 5000 });
     await page.keyboard.type(`${address}, ${city}, ${state} ${zip}`);
-    await page.keyboard.press('Enter');
+    await page.click('.js-searchButton')
   } catch(e) {
     console.log('Error typing in address...');
     await page.screenshot({ path: 'errors/address.png'});

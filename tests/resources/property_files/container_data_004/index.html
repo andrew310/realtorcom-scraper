@@ -1,0 +1,556 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    	<meta name="ad.size" content="width=728,height=90">
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no"> 
+        <script>
+			var WIDTHS = new Object();
+            var HEIGHTS = new Object();
+			
+            WIDTHS['panel1'] = 728;
+			HEIGHTS['panel1'] = 90;
+            
+            var arrayLoadStarted= new Object();
+            var arrayLoadCompleted = new Object();
+            
+            var borderColor = "#000000";
+            
+            
+            var LOG_ALL = false;
+            var DD_LOCAL = ((window.location.href.indexOf('dragndrops.com') >=0 || window.location.href.indexOf('file:///') >=0 || window.location.href.indexOf('127.0.0.1') >=0) ? true : false);
+            var dd_loadLocation = '';
+			var animationComplete = false;
+			var animate = true;
+            var currentPanel = 'panel1';
+			var animationShouldStart = true;
+			var startTime;
+            
+            var IS_ATLAS = false;
+            var clickTag = 'http://www.google.com/';
+		</script>
+        <link rel="stylesheet" href="index_data/style_min.css">
+		<style>
+            .ret{
+                width:728px;
+                height:90px;
+            }
+            .txt_clip{
+                clip:rect(0px 0px 0px 0px);
+            }
+            #shadow{
+                transform-origin:50% 80px;
+                -webkit-transform-origin:50% 80px;
+                -ms-transform-origin:50% 80px;
+            }
+            #txt3_1{
+                transform-origin:50% 93px;
+                -webkit-transform-origin:50% 93px;
+                -ms-transform-origin:50% 93px;
+            }
+            #txt2_6{
+                transform-origin:535px 50%;
+                -webkit-transform-origin:535px 50%;
+                -ms-transform-origin:535px 50%;
+            }
+            #txt2_8{
+                transform-origin:554px 50%;
+                -webkit-transform-origin:554px 50%;
+                -ms-transform-origin:554px 50%;
+            }
+            #txt2_10{
+                transform-origin:570px 50%;
+                -webkit-transform-origin:570px 50%;
+                -ms-transform-origin:570px 50%;
+            }
+		</style>
+	<script type="text/javascript">
+    
+      (function() {
+        var relegateNavigation = '';
+        var handleClickTagMessage = function(e) {
+          try {
+            var eventData = JSON.parse(e.data);
+          } catch (err) {
+            return;
+          }
+          if (eventData.isInitClickTag) {
+            if (eventData.clickTags) {
+              for (var i = 0; i < eventData.clickTags.length; i++) {
+                var clkTag = eventData.clickTags[i];
+                window[clkTag.name] = clkTag.url;
+              }
+            } else if (eventData.clickTag) {
+              window.clickTag = eventData.clickTag;
+            }
+            relegateNavigation = eventData.relegateNavigation;
+          }
+        };
+
+        if (open.call) {
+          window.open = function(open) {
+            return function(url, name, features) {
+              if (relegateNavigation === 'parent') {
+                var message = {'clickTag': url, 'isPostClickTag': true};
+                parent.postMessage(JSON.stringify(message), '*');
+              } else {
+                var args = [url, name];
+                if (features) {
+                  args.push(features);
+                }
+                open.apply(window, args);
+              }
+            };
+          }(window.open);
+        }
+
+        if (window.addEventListener) {
+          window.addEventListener(
+              'message', handleClickTagMessage, false);
+        } else {
+          window.attachEvent('onmessage', handleClickTagMessage);
+        }
+      })();
+    
+  </script><script type="text/javascript" src="index_data/cssplugin_1.js"></script><script type="text/javascript" src="index_data/easepack_1.js"></script><script type="text/javascript" src="index_data/tweenlite_1.js"></script></head>
+	<body>
+		<!-- content -->
+		<div id="container">
+			<div id="media" style="visibility: visible; display: block; height: 90px; width: 728px;">
+                <a class="ad" id="container_clickthrough" href="javascript:window.open(window.clickTag);%20void%200;" style="position:absolute; width:100%; height:100%;"></a>
+			<div id="panel1" class="panel" style="display: block; visibility: visible;"><div id="bg" style="opacity: 1;"></div><div class="hotspot" id="clickthroughHotspot" style="cursor: pointer; visibility: visible;"></div><img class="ret" id="bg_img" src="index_data/JPG_Background.jpg" style="opacity: 1;"><img class="ret" id="logo" src="index_data/PNG_Logo.png" style="z-index: 2; opacity: 1;"><img class="ret" id="shadow" src="index_data/PNG_Shadow.png" style="opacity: 0.9928; transform: translate3d(0px, 0px, 0px) scale(0.99424, 0.99424);"><img class="ret txt_clip" id="txt1_A" src="index_data/PNG_Text1.png" style="clip: rect(0px, 456px, 90px, 0px); opacity: 0; transform: matrix(0.58, 0, 0, 0.58, -169, 1);"><img class="ret txt_clip" id="txt1_B" src="index_data/PNG_Text1.png" style="clip: rect(0px, 728px, 90px, 456px); opacity: 0; transform: matrix(0.58, 0, 0, 0.58, 163, 1);"><img class="ret txt_clip" id="txt1_1" src="index_data/PNG_Text1B.png" style="clip: rect(0px, 456px, 90px, 0px); opacity: 1; z-index: 2; transform: translate3d(30.6254px, 0px, 0px);"><img class="ret txt_clip" id="txt1_2" src="index_data/PNG_Text1B.png" style="clip: rect(0px, 728px, 90px, 456px); opacity: 1; z-index: 2; transform: translate3d(-30.6254px, 0px, 0px);"><img class="ret txt_clip" id="txt2_1" src="index_data/PNG_Text2.png" style="clip: rect(25px, 335px, 64px, 254px); opacity: 0; transform: matrix(1, 0, 0, 1, 0, 0);"><img class="ret txt_clip" id="txt2_2" src="index_data/PNG_Text2.png" style="clip: rect(27px, 380px, 60px, 339px); opacity: 0;"><img class="ret txt_clip" id="txt2_3" src="index_data/PNG_Text2.png" style="clip: rect(29px, 424px, 62px, 384px); opacity: 0;"><img class="ret txt_clip" id="txt2_4" src="index_data/PNG_Text2.png" style="clip: rect(27px, 491px, 61px, 427px); opacity: 0;"><img class="ret txt_clip" id="txt2_5" src="index_data/PNG_Text2.png" style="clip: rect(28px, 524px, 61px, 495px); opacity: 0;"><img class="ret txt_clip" id="txt2_6" src="index_data/PNG_Text2.png" style="clip: rect(30px, 542px, 58px, 527px); opacity: 0; transform: matrix(1, 0, 0, 1, 0, 0);"><img class="ret txt_clip" id="txt2_7" src="index_data/PNG_Text2.png" style="clip: rect(52px, 547px, 61px, 541px); opacity: 0;"><img class="ret txt_clip" id="txt2_8" src="index_data/PNG_Text2.png" style="clip: rect(31px, 560px, 57px, 547px); opacity: 0; transform: matrix(1, 0, 0, 1, 0, 0);"><img class="ret txt_clip" id="txt2_9" src="index_data/PNG_Text2.png" style="clip: rect(52px, 566px, 62px, 559px); opacity: 0;"><img class="ret txt_clip" id="txt2_10" src="index_data/PNG_Text2.png" style="clip: rect(31px, 574px, 57px, 565px); opacity: 0; transform: matrix(1, 0, 0, 1, 0, 0);"><img class="ret txt_clip" id="txt3_1" src="index_data/PNG_Text3.png" style="clip: rect(28px, 311px, 61px, 255px); opacity: 0; transform: matrix(1, 0, 0, 1, 0, 10);"><img class="ret txt_clip" id="txt3_2" src="index_data/PNG_Text3.png" style="clip: rect(28px, 350px, 59px, 312px); opacity: 0; transform: matrix(1, 0, 0, 1, 0, 10);"><img class="ret txt_clip" id="txt3_3" src="index_data/PNG_Text3.png" style="clip: rect(29px, 409px, 63px, 351px); opacity: 0;"><img class="ret txt_clip" id="txt3_4" src="index_data/PNG_Text3.png" style="clip: rect(28px, 472px, 64px, 414px); opacity: 0;"><img class="ret txt_clip" id="txt3_5" src="index_data/PNG_Text3.png" style="clip: rect(27px, 536px, 62px, 474px); opacity: 0;"><img class="ret txt_clip" id="txt3_6" src="index_data/PNG_Text3.png" style="clip: rect(26px, 579px, 62px, 537px); opacity: 0; transform: matrix(1, 0, 0, 1, 10, 0);"><img class="ret txt_clip" id="txt4_1" src="index_data/PNG_Text4.png"><img class="ret txt_clip" id="txt4_2" src="index_data/PNG_Text4.png"><img class="ret txt_clip" id="txt4_3" src="index_data/PNG_Text4.png"><img class="ret txt_clip" id="txt4_4" src="index_data/PNG_Text4.png"><img class="ret txt_clip" id="txt4_5" src="index_data/PNG_Text4.png"><img class="ret txt_clip" id="txt4_6" src="index_data/PNG_Text4.png"><img class="ret txt_clip" id="txt4_7" src="index_data/PNG_Text4.png"><img class="ret txt_clip" id="txt4_8" src="index_data/PNG_Text4.png"><img class="ret txt_clip" id="txt4_9" src="index_data/PNG_Text4.png"><img class="ret txt_clip" id="txt4_10" src="index_data/PNG_Text4.png"><img class="ret txt_clip" id="txt5_1" src="index_data/PNG_Text5.png"><img class="ret txt_clip" id="txt5_2" src="index_data/PNG_Text5.png"><img class="ret" id="txt6_1" src="index_data/PNG_Text6.png"><img class="ret" id="txt6_2" src="index_data/PNG_Text6.png"><img class="ret" id="legal" src="index_data/PNG_Legal.png"></div><canvas id="border" height="92" width="730" style="transform: matrix(1, 0, 0, 1, -1, -1); opacity: 1;"></canvas></div>
+		</div>
+        <script>
+            function initAd(){
+                dd_log('loading libraries');
+                loadLibraries();
+                if(DD_LOCAL){PREVENT_MENU=false;}
+            }
+        </script>
+        <!--script src="https://s0.2mdn.net/ads/studio/Enabler.js"> </script-->
+        <!--script src="./DFA.js"> </script-->
+        <script type="text/javascript" src="index_data/dd_helpers_min.js"></script>
+		<script>
+			var frame = [];
+            
+            var txt1_split = [0, 456, WIDTHS['panel1']];
+            var txt1b_split = [0, 456, WIDTHS['panel1']];
+            var txt6_split = [0, 50, HEIGHTS['panel1']];
+            var splitY = [[],
+                          [],
+                          [0, -0], 
+                          [2, -2], 
+                          [-43, 43], 
+                          [20, -20]];
+            var centerSplit = [165, -165];
+            var shrinkAmount = .58;
+            var splitVars = [-49, 21];
+            var clipBounds = [59, 135];
+            var txtClips = [[], 
+                            [], 
+                            [[254,25,81,39],[339,27,41,33],[384,29,40,33],[427,27,64,34],[495,28,29,33],[527,30,15,28],[541,52,6,9],[547,31,13,26],[559,52,7,10],[565,31,9,26]], 
+                            [[255,28,56,33],[312,28,38,31],[351,29,58,34],[414,28,58,36],[474,27,62,35],[537,26,42,36]],
+                            [[211,34,37,28],[248,36,34,30],[283,30,46,31],[329,28,43,34],[372,34,36,30],[410,34,54,24],[465,30,40,30],[504,35,34,30],[539,33,44,23],[585,38,39,22]],
+                            [[284,14,157,57],[447,15,119,53]]];
+            var initialClips = [83, 134];
+			function defineAssets(){
+                
+				addElement('panel1Elements', createNewElement('div', 'bg'));
+                addElement('panel1Elements', createNewElement('div', 'clickthroughHotspot', 'hotspot'));
+                addElement('panel1Elements', createNewElement('img', 'bg_img', 'JPG_Background.jpg', 'ret'));
+                addElement('panel1Elements', createNewElement('img', 'logo', 'PNG_Logo.png', 'ret'));
+                addElement('panel1Elements', createNewElement('img', 'shadow', 'PNG_Shadow.png', 'ret'));
+                addElement('panel1Elements', createNewElement('img', 'txt1_A', 'PNG_Text1.png', 'ret txt_clip'));
+                addElement('panel1Elements', createNewElement('img', 'txt1_B', 'PNG_Text1.png', 'ret txt_clip'));
+                addElement('panel1Elements', createNewElement('img', 'txt1_1', 'PNG_Text1B.png', 'ret txt_clip'));
+                addElement('panel1Elements', createNewElement('img', 'txt1_2', 'PNG_Text1B.png', 'ret txt_clip'));
+                
+                for(var i = 1; i <= txtClips[2].length; i++){
+                    addElement('panel1Elements', createNewElement('img', 'txt2_'+i, 'PNG_Text2.png', 'ret txt_clip'));
+                }
+                for(var i = 1; i <= txtClips[3].length; i++){
+                    addElement('panel1Elements', createNewElement('img', 'txt3_'+i, 'PNG_Text3.png', 'ret txt_clip'));
+                }
+                for(var i = 1; i <= txtClips[4].length; i++){
+                    addElement('panel1Subload1', createNewElement('img', 'txt4_'+i, 'PNG_Text4.png', 'ret txt_clip'));
+                }
+                for(var i = 1; i <= txtClips[5].length; i++){
+                    addElement('panel1Subload1', createNewElement('img', 'txt5_'+i, 'PNG_Text5.png', 'ret txt_clip'));
+                }
+                for(var i = 1; i < txt6_split.length; i++){
+                    addElement('panel1Subload1', createNewElement('img', 'txt6_'+i, 'PNG_Text6.png', 'ret'));
+                }
+                addElement('panel1Subload1', createNewElement('img', 'legal', 'PNG_Legal.png', 'ret'));
+                
+			}
+            
+            var playDelay = .2;
+            
+            function play(p){
+                var frame = [];
+                var currentFrame = 0;
+                animationComplete=false;
+				startTime = new Date().getTime();
+                
+                var splitNum = 0;
+                if(p == 'panel1'){
+                    frame.push(function() {
+                        TweenLite.killTweensOf(frame[0]);
+                        if(arrayLoadCompleted['panel1Elements']){
+                            createBorder();
+
+                            beginSubload('panel1', 1);
+                            TweenLite.fromTo(['#bg', '#border'], .5, {opacity:0}, {opacity:1});
+                            TweenLite.fromTo('#bg_img', .6, {opacity:0}, {opacity:1, ease:Power2.easeOut});
+                            TweenLite.fromTo('#logo', .6, {opacity:0, zIndex:2}, {opacity:1, ease:Power2.easeOut});
+                            
+                            TweenLite.fromTo(['#txt1_A'], .5, {opacity:0, clip:'rect('+0+'px '+txt1_split[1]+'px '+HEIGHTS['panel1']+'px '+txt1_split[0]+'px)', y:-HEIGHTS['panel1']}, {opacity:1, y:0, ease:Power2.easeOut});
+                            TweenLite.fromTo(['#txt1_B'], .5, {opacity:0, clip:'rect('+0+'px '+txt1_split[2]+'px '+HEIGHTS['panel1']+'px '+txt1_split[1]+'px)', y:-HEIGHTS['panel1']}, {opacity:1, y:0, ease:Power2.easeOut});
+                            
+                            TweenLite.fromTo('#shadow', .6, {opacity:0, scale:.25}, {opacity:.8, scale:.8, ease:Power2.easeOut, delay:.15});
+
+                            if(frame[++currentFrame])TweenLite.delayedCall(1.5, frame[currentFrame]);
+                        }else{
+                            TweenLite.delayedCall(.1, frame[currentFrame]);
+                        }
+                    });
+                    frame.push(function() {
+                        if(arrayLoadCompleted['panel1Elements']){
+                            var closeClip = initialClips[0]+Math.floor((initialClips[1]-initialClips[0])*.5);
+                            TweenLite.to(['#txt1_A'], .3, {scale:shrinkAmount, x:-169, y:1, ease:Power2.easeOut, onComplete:function(){
+                                TweenLite.set('#txt1_A', {opacity:0});
+                            }});
+                            TweenLite.fromTo(['#txt1_'+1], 0, {zIndex:2, opacity:0, x:0, y:0, clip:'rect('+0+'px '+txt1b_split[1]+'px '+HEIGHTS['panel1']+'px '+txt1b_split[0]+'px)'}, {opacity:1, delay:.3});
+                            TweenLite.to(['#txt1_B'], .3, {scale:shrinkAmount, x:163, y:1, ease:Power2.easeOut, onComplete:function(){
+                                TweenLite.set('#txt1_B', {opacity:0});
+                            }});
+                            TweenLite.fromTo(['#txt1_'+2], 0, {zIndex:2, opacity:0, x:0, y:0, clip:'rect('+0+'px '+txt1b_split[2]+'px '+HEIGHTS['panel1']+'px '+txt1b_split[1]+'px)'}, {opacity:1, delay:.3});
+
+                            TweenLite.to('#shadow', .8, {scale:1, opacity:1, ease:Power2.easeOut});
+                            if(frame[++currentFrame])TweenLite.delayedCall(.3, frame[currentFrame]);
+                        }else{
+                            TweenLite.delayedCall(.1, frame[currentFrame]);
+                        }
+                    });
+                    frame.push(function() {
+                        if(arrayLoadCompleted['panel1Elements']){
+                            var currFrame = 2;
+                            var moveY = 0;
+                            for(var i = 1; i <= 2; i++){
+                                moveY = (i == 1)?splitY[currFrame][0]:splitY[currFrame][1];
+                                TweenLite.to(['#txt1_'+i], .6, {x:moveY+'px', ease:Power2.easeOut});
+                            }
+                            
+                            var d = 0;
+                            for(var i = 1; i <= txtClips[currFrame].length; i++){
+                                if(i == 1){
+                                    TweenLite.fromTo('#txt'+currFrame+'_'+i, .2, {opacity:0, clip:'rect('+(txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][2]+txtClips[currFrame][i-1][0])+'px '+(txtClips[currFrame][i-1][3]+txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][0])+'px)'}, {opacity:1, ease:Power2.easeOut, delay:d});
+                                    TweenLite.fromTo('#txt'+currFrame+'_'+i, .4, {scale:0}, {scale:1, ease:Power2.easeOut, delay:d});
+                                    d+=.3;
+                                }else if(i == txtClips[currFrame].length-4 || i == txtClips[currFrame].length-2 || i == txtClips[currFrame].length){
+                                    dd_log(i);
+                                    TweenLite.fromTo('#txt'+currFrame+'_'+i, .2, {opacity:0, clip:'rect('+(txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][2]+txtClips[currFrame][i-1][0])+'px '+(txtClips[currFrame][i-1][3]+txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][0])+'px)'}, {opacity:1, ease:Power2.easeOut, delay:d});
+                                    TweenLite.fromTo('#txt'+currFrame+'_'+i, .5, {scale:10},{scale:1, delay:d, ease:Power2.easeOut});
+                                    d+=.3;
+                                }else{
+                                    TweenLite.fromTo('#txt'+currFrame+'_'+i, .2, {opacity:0, clip:'rect('+(txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][2]+txtClips[currFrame][i-1][0])+'px '+(txtClips[currFrame][i-1][3]+txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][0])+'px)'}, {opacity:1, ease:Power2.easeOut, delay:d});
+                                }
+                                d+=.1;
+                            }
+
+                            TweenLite.to('#shadow', .6, {scale:1, opacity:1, ease:Power2.easeOut});
+                            if(frame[++currentFrame])TweenLite.delayedCall(d+.5, frame[currentFrame]);
+                        }else{
+                            TweenLite.delayedCall(.1, frame[currentFrame]);
+                        }
+                    });
+                    frame.push(function() {
+                        if(arrayLoadCompleted['panel1Elements']){
+                            var spd = .3;
+                            var moveY = 0;
+                            for(var i = 1; i <= 2; i++){
+                                moveY = (i == 1)?centerSplit[0]:centerSplit[1];
+                                TweenLite.to(['#txt1_'+i], spd, {x:moveY, ease:Power1.easeInOut});
+                            }
+                            
+                            var d = 0;
+                            var currFrame = 2;
+                            for(var i = 1; i <= txtClips[currFrame].length; i++){
+                                TweenLite.to('#txt'+currFrame+'_'+i, .3, {opacity:0, ease:Power2.easeOut, delay:d});
+                            }
+                            
+                            TweenLite.to('#shadow', spd, {scale:.8, opacity:.75, ease:Power1.easeInOut});
+
+                            if(frame[++currentFrame])TweenLite.delayedCall(spd, frame[currentFrame]);
+                        }else{
+                            TweenLite.delayedCall(.1, frame[currentFrame]);
+                        }
+                    });
+                    frame.push(function() {
+                        if(arrayLoadCompleted['panel1Elements']){
+                            var currFrame = 3;
+                            var spd = .3;
+                            splitNum++;
+                            var moveY = 0;
+                            for(var i = 1; i <= 2; i++){
+                                moveY = (i == 1)?splitY[currFrame][0]:splitY[currFrame][1];
+                                TweenLite.to(['#txt1_'+i], .6, {x:moveY+'px', ease:Power2.easeOut});
+                            }
+                            
+                            var d = .3;
+                            for(var i = 1; i <= txtClips[currFrame].length; i++){
+                                if(i <= 2){
+                                    TweenLite.fromTo('#txt'+currFrame+'_'+i, .6, {opacity:0, y:10, clip:'rect('+(txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][2]+txtClips[currFrame][i-1][0])+'px '+(txtClips[currFrame][i-1][3]+txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][0])+'px)'}, {opacity:1, y:0, ease:Power2.easeOut, delay:d});
+                                    d+=.05;
+                                    if(i == 2){
+                                        d+=.2;
+                                    }
+                                }else if(i == txtClips[currFrame].length){
+                                    TweenLite.fromTo('#txt'+currFrame+'_'+i, .2, {opacity:0, clip:'rect('+(txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][2]+txtClips[currFrame][i-1][0])+'px '+(txtClips[currFrame][i-1][3]+txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][0])+'px)'}, {opacity:1, ease:Power2.easeOut, delay:d});
+                                    TweenLite.fromTo('#txt'+currFrame+'_'+i, .6, {x:10}, {x:0, ease:Power2.easeOut, delay:d});
+                                }else{    
+                                    TweenLite.fromTo('#txt'+currFrame+'_'+i, .2, {opacity:0, clip:'rect('+(txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][2]+txtClips[currFrame][i-1][0])+'px '+(txtClips[currFrame][i-1][3]+txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][0])+'px)'}, {opacity:1, ease:Power2.easeOut, delay:d});
+                                }
+                                d+=.1;
+                            }
+                            
+                            TweenLite.to('#shadow', spd, {scale:1, opacity:1, ease:Power1.easeInOut});
+
+                            if(frame[++currentFrame])TweenLite.delayedCall(d+1, frame[currentFrame]);
+                        }else{
+                            TweenLite.delayedCall(.1, frame[currentFrame]);
+                        }
+                    });
+                    frame.push(function() {
+                        if(arrayLoadCompleted['panel1Elements']){
+                            var spd = .3;
+                            var moveY = 0;
+                            for(var i = 1; i <= 2; i++){
+                                moveY = (i == 1)?centerSplit[0]:centerSplit[1];
+                                TweenLite.to(['#txt1_'+i], spd, {x:moveY, ease:Power1.easeInOut});
+                            }
+                            
+                            var d = 0;
+                            var currFrame = 3;
+                            for(var i = 1; i <= txtClips[currFrame].length; i++){
+                                TweenLite.to('#txt'+currFrame+'_'+i, .3, {opacity:0, ease:Power2.easeOut, delay:d});
+                            }
+                            
+                            TweenLite.to('#shadow', spd, {scale:.8, opacity:.75, ease:Power1.easeInOut});
+
+                            if(frame[++currentFrame])TweenLite.delayedCall(spd, frame[currentFrame]);
+                        }else{
+                            TweenLite.delayedCall(.1, frame[currentFrame]);
+                        }
+                    });
+                    frame.push(function() {
+                        if(arrayLoadCompleted['panel1Subload1']){
+                            var currFrame = 4;
+                            var spd = .3;
+                            splitNum++;
+                            var moveY = 0;
+                            for(var i = 1; i <= 2; i++){
+                                moveY = (i == 1)?splitY[currFrame][0]:splitY[currFrame][1];
+                                TweenLite.to(['#txt1_'+i], .6, {x:moveY+'px', ease:Power2.easeOut});
+                            }
+                            
+                            var d = .3;
+                            for(var i = 1; i <= txtClips[currFrame].length; i++){
+                                if((i-1)%3==0 && i != txtClips[currFrame].length){
+                                    TweenLite.fromTo('#txt'+currFrame+'_'+i, .3, {opacity:1, clip:'rect('+(txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][0])+'px '+(txtClips[currFrame][i-1][3]+txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][0])+'px)'}, {opacity:1, clip:'rect('+(txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][2]+txtClips[currFrame][i-1][0])+'px '+(txtClips[currFrame][i-1][3]+txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][0])+'px)', ease:Power2.easeOut, delay:d});
+                                    d+=.2;
+                                }else{
+                                    TweenLite.fromTo('#txt'+currFrame+'_'+i, .2, {opacity:0, clip:'rect('+(txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][2]+txtClips[currFrame][i-1][0])+'px '+(txtClips[currFrame][i-1][3]+txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][0])+'px)'}, {opacity:1, ease:Power2.easeOut, delay:d});
+                                }
+                                d+=.1;
+                            }
+
+                            d+=.3;
+                            
+                            TweenLite.to('#shadow', spd, {scale:1, opacity:1, ease:Power1.easeInOut});
+                            
+                            if(frame[++currentFrame])TweenLite.delayedCall(d+1, frame[currentFrame]);
+                        }else{
+                            TweenLite.delayedCall(.1, frame[currentFrame]);
+                        }
+                    });
+                    frame.push(function() {
+                        if(arrayLoadCompleted['panel1Subload1']){
+                            var spd = .3;
+                            var moveY = 0;
+                            for(var i = 1; i <= 2; i++){
+                                moveY = (i == 1)?centerSplit[0]:centerSplit[1];
+                                TweenLite.to(['#txt1_'+i], spd, {x:moveY, ease:Power1.easeInOut});
+                            }
+                            
+                            var d = 0;
+                            var currFrame = 4;
+                            for(var i = 1; i <= txtClips[currFrame].length; i++){
+                                TweenLite.to('#txt'+currFrame+'_'+i, .3, {opacity:0, ease:Power2.easeOut, delay:d});
+                            }
+                            
+                            TweenLite.to('#shadow', spd, {scale:.8, opacity:.75, ease:Power1.easeInOut});
+
+                            if(frame[++currentFrame])TweenLite.delayedCall(spd, frame[currentFrame]);
+                        }else{
+                            TweenLite.delayedCall(.1, frame[currentFrame]);
+                        }
+                    });
+                    frame.push(function() {
+                        if(arrayLoadCompleted['panel1Subload1']){
+                            var currFrame = 5;
+                            var spd = .3;
+                            splitNum++;
+                            var moveY = 0;
+                            for(var i = 1; i <= 2; i++){
+                                moveY = (i == 1)?splitY[currFrame][0]:splitY[currFrame][1];
+                                TweenLite.to(['#txt1_'+i], .6, {x:moveY+'px', ease:Power2.easeOut});
+                            }
+                            
+                            var d = .3;
+                            for(var i = 1; i <= txtClips[currFrame].length; i++){
+                                TweenLite.fromTo('#txt'+currFrame+'_'+i, .2, {opacity:0, clip:'rect('+(txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][2]+txtClips[currFrame][i-1][0])+'px '+(txtClips[currFrame][i-1][3]+txtClips[currFrame][i-1][1])+'px '+(txtClips[currFrame][i-1][0])+'px)'}, {opacity:1, ease:Power2.easeOut, delay:d});
+                                TweenLite.fromTo('#txt'+currFrame+'_'+i, .5, {scale:0}, {scale:1, easeParams:[2], ease:Back.easeOut, delay:d});
+                                d+=.1;
+                            }
+
+                            TweenLite.to('#shadow', spd, {scale:1, opacity:1, ease:Power1.easeInOut});
+                            
+                            if(frame[++currentFrame])TweenLite.delayedCall(d+1.5, frame[currentFrame]);
+                        }else{
+                            TweenLite.delayedCall(.1, frame[currentFrame]);
+                        }
+                    });
+                    frame.push(function() {
+                        if(arrayLoadCompleted['panel1Subload1']){
+                            var d = .25
+                            for(var i = 1; i < txt6_split.length; i++){
+                                if(i < txt6_split.length){
+                                    TweenLite.fromTo(['#txt6_'+i], .2, {scale:1, opacity:0, clip:'rect('+txt6_split[i-1]+'px '+WIDTHS['panel1']+'px '+txt6_split[i]+'px '+0+'px)', x:1}, {scale:1, opacity:1, x:0, ease:Power2.easeOut, delay:d});
+                                }else{
+                                    TweenLite.fromTo(['#txt6_'+i], .2, {opacity:0, clip:'rect('+txt6_split[i-1]+'px '+WIDTHS['panel1']+'px '+txt6_split[i]+'px '+0+'px)', x:0}, {opacity:1, x:0, ease:Power2.easeOut, delay:d+.25});
+                                }
+                                d+=.2;
+                            }
+                            TweenLite.fromTo('#legal', .2, {opacity:0}, {opacity:1, ease:Power1.easeInOut, delay:d+.25});
+                            
+                            var spd = .4;
+                            TweenLite.to(['#txt1_1', '#txt1_2'], spd, {opacity:0, ease:Power2.easeOut});
+                            var d = 0;
+                            var currFrame = 5;
+                            for(var i = 1; i <= txtClips[currFrame].length; i++){
+                                TweenLite.to('#txt'+currFrame+'_'+i, spd, {opacity:0, ease:Power2.easeOut, delay:d});
+                            }
+                            TweenLite.to('#shadow', .2, {opacity:.5, scale:.6, ease:Power2.easeOut, onComplete:function(){
+                                TweenLite.to('#shadow', 1, {opacity:1, scale:1, ease:Power1.easeOut, delay:0});
+                            }});
+                            
+                            if(frame[++currentFrame])TweenLite.delayedCall(spd, frame[currentFrame]);
+                        }else{
+                            TweenLite.delayedCall(.1, frame[currentFrame]);
+                        }
+                    });
+                }else if(p == 'panel2'){
+                    frame.push(function() {
+                        //dd_log(currentFrame);
+
+                        if(frame[++currentFrame])TweenLite.delayedCall(2, frame[currentFrame]);
+                    });
+                }
+                
+				initializeHotspots();
+                
+				TweenLite.delayedCall(playDelay, frame[0]);
+                playDelay = 0;
+            }
+
+			function buttonClick(evt){
+				if(evt){
+					evt.stopPropagation();
+				}
+				var t = evt.target || evt.srcElement;
+				if(t == document.getElementById('clickthroughHotspot')){
+                    
+                    document.getElementById('container_clickthrough').click();
+                    //document.getElementById('container_clickthrough').click();
+                    //Enabler.exit('Clickthrough_Exit');
+					//Enabler.counter('Replay_Clicked', true);
+				}
+			}
+			
+			function buttonOver(evt){
+				if(evt){
+					evt.stopPropagation();
+				}
+				var t = evt.target || evt.srcElement;
+				if(t == document.getElementById('clickthroughHotspot')){
+					if(animationComplete){
+					}
+				}
+			}
+			
+			function buttonOut(evt){
+				if(evt){
+					evt.stopPropagation();
+				}
+				var t = evt.target || evt.srcElement;
+				if(t == document.getElementById('clickthroughHotspot')){
+					if(animationComplete){
+					}
+				}
+			}
+			
+            function initializeAd(){
+                
+				defineAssets();
+				loadAssets('panel1');
+				
+				if(animate){
+					if(animationShouldStart){
+						startMedia();
+					}else{
+						var startCheck = setInterval(function(){
+							if(animationShouldStart){
+                                clearInterval(startCheck);
+                                startMedia();
+							}else{
+								//dd_log('do not start animation');
+							}
+						}, 50);
+					}
+				}
+			}
+			
+			function startMedia() {
+				if(DD_LOCAL){
+				    TweenLite.set(document.getElementsByTagName('body')[0],{'background-color':'#999999','width':WIDTHS['panel1'],'margin':'10px auto 10px auto'});
+				}
+                /*
+                if(!IS_ATLAS){
+                    var ct = document.getElementById('container_clickthrough');
+                    ct.setAttribute('href', "javascript:void(0)");
+                    ct.onclick = function(){window.open(window.clickTag)};
+                    ct.removeAttribute('target');
+                }*/
+                    
+                showPanel('panel1');
+				
+			}
+            
+            function showPanel(id){
+                var panels = document.getElementsByClassName('panel');
+                for(var i = 0; i < panels.length; i++){
+                    TweenLite.set(panels[i], {visibility:'hidden', display:'none'});
+                }
+                TweenLite.set('#'+id, {visibility:'visible', display:'block'});
+                TweenLite.set('#media', {width:WIDTHS[id], height:HEIGHTS[id], display:'block', visibility:'visible'});
+
+                currentPanel = id;
+                play(id);
+            }
+		</script>
+        <script>
+            window.onload = initAd;
+        </script>
+    
+
+</body></html>

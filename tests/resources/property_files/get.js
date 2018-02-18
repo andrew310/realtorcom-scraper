@@ -1,0 +1,1 @@
+Krux.ns._default.kxjsonp_userdata({"status":"200","body":{"code":"no_segments","kuid":"LTiZqL8C","kuid_long":"rwruo0c5g","geo":{"zip":"91306","longitude":"-118.576","latitude":"34.208","dma":"803","country":"us","domain":"rr.com","region":"ca"},"technographics":{"browser":"Firefox 53","manufacturer":"Apple Inc.","device":"Computer","os":"Mac OS X"}}});

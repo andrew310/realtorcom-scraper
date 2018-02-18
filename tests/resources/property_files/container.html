@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>SafeFrame Container</title>
+  </head>
+  <body topmargin="0" marginwidth="0" marginheight="0" leftmargin="0" bgcolor="#ffffff">
+    <script>
+(function(){var b=String.prototype.trim?function(a){return a.trim()}:function(a){return/^[\s\xa0]*([\s\S]*?)[\s\xa0]*$/.exec(a)[1]},g=function(a,c){return a<c?-1:a>c?1:0};var h;a:{var k=this.navigator;if(k){var l=k.userAgent;if(l){h=l;break a}}h=""};var n=function(a,c){var f=m;return Object.prototype.hasOwnProperty.call(f,a)?f[a]:f[a]=c(a)};var q=-1!=h.indexOf("Opera"),r=-1!=h.indexOf("Trident")||-1!=h.indexOf("MSIE"),t=-1!=h.indexOf("Edge"),u=-1!=h.indexOf("Gecko")&&!(-1!=h.toLowerCase().indexOf("webkit")&&-1==h.indexOf("Edge"))&&!(-1!=h.indexOf("Trident")||-1!=h.indexOf("MSIE"))&&-1==h.indexOf("Edge"),v=-1!=h.toLowerCase().indexOf("webkit")&&-1==h.indexOf("Edge"),w;a:{var x="",y=function(){var a=h;if(u)return/rv:([^\);]+)(\)|;)/.exec(a);if(t)return/Edge\/([\d\.]+)/.exec(a);if(r)return/\b(?:MSIE|rv)[: ]([^\);]+)(\)|;)/.exec(a);if(v)return/WebKit\/(\S+)/.exec(a);if(q)return/(?:Version)[ \/]?(\S+)/.exec(a)}();y&&(x=y?y[1]:"");if(r){var z,A=this.document;z=A?A.documentMode:void 0;if(null!=z&&z>parseFloat(x)){w=String(z);break a}}w=x}var B=w,m={},C=function(a){return n(a,function(){for(var c=0,f=b(String(B)).split("."),O=b(String(a)).split("."),Z=Math.max(f.length,O.length),p=0;0==c&&p<Z;p++){var d=f[p]||"",e=O[p]||"";do{d=/(\d*)(\D*)(.*)/.exec(d)||["","","",""];e=/(\d*)(\D*)(.*)/.exec(e)||["","","",""];if(0==d[0].length&&0==e[0].length)break;c=g(0==d[1].length?0:parseInt(d[1],10),0==e[1].length?0:parseInt(e[1],10))||g(0==d[2].length,0==e[2].length)||g(d[2],e[2]);d=d[3];e=e[3]}while(0==c)}return 0<=c})};var D=u||v||r&&C(11)||t;var aa=/^([^;]+);(\d+);([\s\S]*)$/;try{var E,F=aa.exec(window.name);if(null===F)throw Error("Cannot parse serialized data");var G=+F[2],H=F[3];if(G>H.length)throw Error("Cannot parse serialized data");E={b:F[1],content:H.substr(0,G),a:H.substr(G)};var I;var J=window.location.hash;if(J){var K=J.match(/[&#]eid=([\d,]+)/);I=K?K[1].split(","):[]}else I=[];var ba=I;D&&(window.name="");var L=JSON.parse(E.a);L.goog_safeframe_hlt&&(this.goog_safeframe_hlt=L.goog_safeframe_hlt);L._context&&(this.AMP_CONTEXT_DATA=L._context);this.sf_={v:E.b,exp:ba,cfg:L};var M=E.content,N=window;if(D){var P=N.document;P.open("text/html","replace");P.write(M);P.close()}else{var Q=M,R;if(R=r&&C(7)&&!C(10)){var S=navigator.userAgent.match(/Trident\/([0-9]+.[0-9]+)/);R=6>(S?parseFloat(S[1]):0)}var T;if(T=R)a:{for(var U=0;U<Q.length;++U)if(127<Q.charCodeAt(U)){T=!0;break a}T=!1}if(T){for(var V=unescape(encodeURIComponent(Q)),W=Math.floor(V.length/2),X=[],Y=0;Y<W;++Y)X[Y]=String.fromCharCode(256*V.charCodeAt(2*Y+1)+V.charCodeAt(2*Y));1==V.length%2&&(X[W]=V.charAt(V.length-1));Q=X.join("")}N.goog_content=Q;N.location.replace("javascript:window.goog_content")}}catch(a){};}).call(this);
+    </script><script>var google_casm=[null,null,null,null,null,null,1];</script><script></script><style>.dart-link {
+	color: #0099cc;
+	cursor: pointer;
+	font-family: "Roboto", sans-serif;
+	font-size: 14px;
+    font-weight: 300;
+	text-decoration: none;
+              width: 400px; 
+	height: 17px;
+	float: right;
+	text-align: right; 
+	padding-bottom: 3px;
+ /*       -webkit-font-smoothing : antialiased; */
+        vertical-align: top;
+}
+.dart-link:hover {
+	color: #0099cc;
+	text-decoration: underline;
+}
+.dart-link + img { display: none;
+}
+</style><script src="container_data_004/ext.js"></script><script>var viewReq = new Array();function vu(u) {var i=new Image();i.src=u.replace("&amp;","&");viewReq.push(i);}</script><script>vu("https://securepubads.g.doubleclick.net/pcs/view?xai\u003dAKAOjst0bdfDIHeUrt3BU_wQG1POsSotVHuxId1DGbCodqj2iVwu3JpIyuhz5gPNddQRK0rJR_vvQ1iry2pShTCw5XQU_yKOqvYFwFcJnShv1gg4y0qz86Ysdad7y6pQsHtok503yc7YbWqyOwyg54DSTsF6Y6mbyF8VA5iu3s5R_2bJT_Dw_gcb06-5eWNsVjT-UfS1O3E4TJPVpkTZUWmmbNxbT8P8TZzNcoFKuSsJrc0bYTJbsq9-w0NHDhTH-ukmC2_mjzZ_KHw\u0026sig\u003dCg0ArKJSzGRecXsH-a83EAE\u0026urlfix\u003d1\u0026adurl\u003d")</script><div>
+      <a class="dart-link" target="_blank" href="http://adclick.g.doubleclick.net/pcs/click?xai=AKAOjsulFH2_fzdsSqpRqpWw6MA3u8vLlIusxRtSadiQrIGt9baHR6UFJL8WcX4Wt_rmptGYUManwmDVznhLJBQ0d9DVSd92V9caLwuCwQCEOuAg8AjSpX1Bgqcp6vpV1G1JvPXIh0uD8OkozG8DKegm8_0TvRnMaKxOgi1HMzroE-IRkmpl3APqFhCWzfrZjM371uJuLfa7YcwoG9h1dzMgyfrj2l32gOIoi-uQoFm-D-CJsKXE-556dxO_T4hXD8_8BGw&amp;sig=Cg0ArKJSzCWLj7vIquwvEAE&amp;urlfix=1&amp;adurl=http://realtor.moving.com/tools/move-planner/landing.asp">Free Moving Planner</a>
+
+<img src="container_data_003/container_002.html" width="0" border="0" height="0">
+
+
+</div><script src="10526-Barada-St_Houston_TX_77034_M77635-47710_data_003/osd_listener.js"></script><script type="text/javascript">osdlfm(-1,'','B6xgmCGSIWsrLDNH3iQOCwZqQDQAAAAAQATgByAEJwAIC4AIA4AQBoAYf0ggFCIBhEAE','',93299365,true,'ud\u003d1\u0026la\u003d0\u0026alp\u003dxai\u0026alh\u003d3668577321\u0026',3,'CAASEuRoH6-ladohPKTN9fAPaOo3Tw','https://pagead2.googlesyndication.com/pcs/activeview?xai\u003dAKAOjsuTmXTnkyBLcuh15BFYu0InTd4tGjnJolo9RiQ1UFXhU3QSDwUapt7XKKzxLFHSX_JqOkGV4g_sHHtbcV27s8fJ2bjVzmTcY6Y\u0026sig\u003dCg0ArKJSzDOQCFKQboglEAE');</script><script>if (window.top && window.top.postMessage) {window.top.postMessage('{"googMsgType":"adpnt"}','*');}</script><div style="bottom:0;right:0;width:400px;height:100px;background:initial !important;position:absolute !important;max-width:100% !important;max-height:100% !important;pointer-events:none !important;image-rendering:-moz-crisp-edges !important;z-index:2147483647;background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAWBAMAAACrl3iAAAAABlBMVEUAAAD+AciWmZzWAAAAAnRSTlMAApidrBQAAAB6SURBVBjTbVEJDsAwCMIf8P/XbkU8ttRMU1NA6oB7RMZ7OF93oG4JkqsTAo2uzrhTdXY395mDvmp7dpSynUzw7xtVTBKIkrUTU8IMjH46kc8FbN/oOgrLB5mDOBv0YpzzrnqoJmHb3RN6g2VdudClDXw2iCKtf2kjZjxX9QW+ENQ4jgAAAABJRU5ErkJggg==') !important"></div><noscript class="MOAT-realtordfp60074294931?moatClientLevel1=13711397&amp;moatClientLevel2=114201317&amp;moatClientLevel3=866134997&amp;moatClientLevel4=138201159996&amp;moatClientSlicer1=21626032909&amp;moatClientSlicer2=21663664280&amp;zMoatPS=TXTLDP1&amp;zMoatST="></noscript>
+<script src="container_data/moatad.js" type="text/javascript"></script>
+  
+
+</body></html>
