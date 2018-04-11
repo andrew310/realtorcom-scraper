@@ -19,12 +19,20 @@ function parseProperty(html) {
     // Days on market.
     const daysOnMarket = $('.data-tile-box:has(span:contains("Days on market")) .summary-datapoint').first().text().trim();
 
-    // Handle broker info.
-    const realtor = $('.business-card-content:has(li:contains("Seller represented by")) > ul > li:nth-child(2) > a[data-label="additional-seller-agent-name"]').first().text().trim();
-    let brokerage = $('.business-card-content:has(li:contains("Seller represented by")) > ul > li:nth-child(2) > span[data-label="additional-seller-broker-name"]').first().text().trim();
-    brokerage = brokerage.includes('\n') ? brokerage.split('\n')[1].trim() : brokerage;
-    const realtorLink = $('.business-card-content:has(li:contains("Seller represented by")) > ul > li:nth-child(2) > a').attr('href') || '';
+    // Realtor info.
+    let realtor = $('.business-card-content a[data-label="additional-agent-name"]').first().text().trim();
+    let brokerage = $('span[data-label="branding-office-name"]').first().text().trim();
+    let realtorLink = null;
+    let phone = $('span[data-label="additional-office-phone"] a').first().text().trim();
 
+    // Second handler for realtor, in case first is missing.
+    if (!(realtor && realtor.length)) {
+        realtor = $('.business-card-content:has(li:contains("Seller represented by")) > ul > li:nth-child(2) > a[data-label="additional-seller-agent-name"]').first().text().trim();
+        brokerage = $('.business-card-content:has(li:contains("Seller represented by")) > ul > li:nth-child(2) > span[data-label="additional-seller-broker-name"]').first().text().trim();
+        brokerage = brokerage.includes('\n') ? brokerage.split('\n')[1].trim() : brokerage;
+        realtorLink = $('.business-card-content:has(li:contains("Seller represented by")) > ul > li:nth-child(2) > a').attr('href') || '';
+    }
+    
     return {
         brokerage,
         dateUpdated,
@@ -34,6 +42,7 @@ function parseProperty(html) {
         latestEventPrice,
         latestEventPriceSqft,
         latestEventSource,
+        phone,
         realtor,
         realtorLink,
         status,

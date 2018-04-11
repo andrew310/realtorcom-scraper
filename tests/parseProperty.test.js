@@ -20,6 +20,7 @@ describe('test parseProperty', () => {
         latestEventPrice: "$120,000",
         latestEventPriceSqft: "—",
         latestEventSource: "",
+        phone: "",
         realtor: "",
         realtorLink: "",
         status: 'Off Market',
@@ -42,6 +43,7 @@ describe('test parseProperty', () => {
         latestEventPrice: "-",
         latestEventPriceSqft: "—",
         latestEventSource: "Houston",
+        phone: "",
         realtor: "Diane Hermis Schrakamp",
         realtorLink: "/realestateagents/Diane-Hermis-Schrakamp_Houston_TX_1414591_796744491",
         status: 'Just sold',
@@ -64,9 +66,62 @@ describe('test parseProperty', () => {
         latestEventPrice: "",
         latestEventPriceSqft: "",
         latestEventSource: "",
+        phone: "",
         realtor: "",
         realtorLink: "",
         status: "Off Market",
+      });
+    });
+});
+
+describe('test parseProperty', () => {
+    it('should get listing info', () => {
+      const htmlPath = path.join(__dirname, 'resources', 'listed.html');
+      const html = fs.readFileSync(htmlPath);
+      const propertyDetails = parseProperty(html);
+
+      expect(propertyDetails).toEqual({
+        brokerage: "Keller Williams Realty Katy",
+        dateUpdated: null,
+        daysOnMarket: "",
+        latestEvent: "",
+        latestEventDate: "",
+        latestEventPrice: "",
+        latestEvent: "Price Changed",
+        latestEventDate: "02/17/2018",
+        latestEventPrice: "$365,000",
+        latestEventPriceSqft: "$124",
+        latestEventSource: "Houston",
+        phone: "(281) 220-2100",
+        realtor: "Amy Kristynik",
+        realtorLink: null,
+        status: "For Sale",
+      });
+    });
+});
+
+describe('test parseProperty', () => {
+    it('should get listing info', () => {
+      const htmlPath = path.join(__dirname, 'resources', 'listed2.html');
+      const html = fs.readFileSync(htmlPath);
+      const propertyDetails = parseProperty(html);
+
+      expect(propertyDetails).toEqual({
+        brokerage: "Keller Williams Realty Katy",
+        dateUpdated: null,
+        daysOnMarket: "",
+        latestEvent: "",
+        latestEventDate: "",
+        latestEventPrice: "",
+        latestEvent: "Listed",
+        latestEventDate: "02/13/2018",
+        latestEventPrice: "$140,000",
+        latestEventPriceSqft: "$93",
+        latestEventSource: "Houston",
+        phone: "(281) 220-2100",
+        realtor: "Lance Loken",
+        realtorLink: null,
+        status: "New",
       });
     });
 });
